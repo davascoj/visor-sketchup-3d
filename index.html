@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#102a43" />
+    <meta name="description" content="Visor interactivo del modelo 3D Plataformas de Acceso Nuevo México." />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%230ea5a4' d='M8 48 32 8l24 40H8Z'/%3E%3Cpath fill='%23f8fafc' d='m32 20 11 19H21l11-19Z'/%3E%3C/svg%3E" />
+    <title>Plataformas de Acceso Nuevo México | Visor 3D</title>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <header class="bar">
+        <div class="identity">
+          <span class="mark" aria-hidden="true">3D</span>
+          <div>
+            <p class="eyebrow">VISUALIZACIÓN INTERACTIVA</p>
+            <h1>Plataformas de Acceso Nuevo México</h1>
+          </div>
+        </div>
+        <button id="reset-view" class="button" type="button">Restablecer vista</button>
+      </header>
+
+      <section class="viewer-shell" aria-label="Modelo 3D interactivo">
+        <model-viewer
+          id="viewer"
+          src="models/modelo.glb"
+          alt="Modelo 3D de plataformas de acceso Nuevo México"
+          camera-controls
+          touch-action="pan-y"
+          shadow-intensity="1"
+          environment-image="neutral"
+          exposure="1"
+          camera-orbit="45deg 70deg auto"
+          auto-rotate-delay="0"
+          interaction-prompt="auto"
+          loading="eager"
+          reveal="auto">
+          <div class="loading" slot="poster" id="loading">Cargando modelo 3D…</div>
+        </model-viewer>
+        <div id="error" class="error" hidden>
+          No fue posible cargar el modelo. Verifica que exista <code>models/modelo.glb</code>.
+        </div>
+        <div class="controls-hint" aria-hidden="true">
+          <span>Arrastra para girar</span><span>Rueda o pellizca para acercar</span>
+        </div>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
