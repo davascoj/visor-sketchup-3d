@@ -20,13 +20,18 @@
             <h1>Plataformas de Acceso Nuevo México</h1>
           </div>
         </div>
-        <button id="reset-view" class="button" type="button">Restablecer vista</button>
+        <div class="header-actions">
+          <button id="info-toggle" class="button icon-button" type="button" aria-expanded="false" aria-controls="info-panel" title="Información del proyecto">ⓘ<span>Información</span></button>
+          <button id="views-toggle" class="button icon-button" type="button" aria-expanded="false" aria-controls="views-panel" title="Vistas predefinidas">◫<span>Vistas</span></button>
+          <button id="fullscreen-toggle" class="button icon-button" type="button" title="Pantalla completa">⛶<span>Pantalla completa</span></button>
+          <button id="reset-view" class="button" type="button">Restablecer vista</button>
+        </div>
       </header>
 
       <section class="viewer-shell" aria-label="Modelo 3D interactivo">
         <model-viewer
           id="viewer"
-          src="models/modelo.glb?v=20260918-0842"
+          src="models/modelo.glb?v=20260918-0950"
           alt="Modelo 3D de plataformas de acceso Nuevo México"
           camera-controls
           touch-action="pan-y"
@@ -35,11 +40,17 @@
           exposure="1"
           camera-orbit="45deg 70deg auto"
           min-camera-orbit="auto auto 20%"
+          ar
+          ar-modes="webxr scene-viewer"
           auto-rotate-delay="0"
           interaction-prompt="auto"
           loading="eager"
           reveal="auto">
-          <div class="loading" slot="poster" id="loading">Cargando modelo 3D…</div>
+          <div class="loading" slot="poster" id="loading" role="status" aria-live="polite">
+            <span id="loading-label">Cargando modelo 3D…</span>
+            <progress id="loading-progress" max="100" value="0" aria-label="Progreso de carga"></progress>
+          </div>
+          <button slot="ar-button" class="ar-button" type="button">Ver en mi espacio</button>
         </model-viewer>
         <div id="error" class="error" hidden>
           No fue posible cargar el modelo. Verifica que exista <code>models/modelo.glb</code>.
@@ -47,6 +58,28 @@
         <div class="controls-hint" aria-hidden="true">
           <span>Arrastra para girar</span><span>Rueda o pellizca para acercar</span>
         </div>
+        <aside class="viewer-panel" id="views-panel" hidden aria-label="Vistas predefinidas">
+          <p class="panel-title">Vistas</p>
+          <div class="view-grid">
+            <button type="button" data-view="front">Frontal</button>
+            <button type="button" data-view="side">Lateral</button>
+            <button type="button" data-view="top">Superior</button>
+            <button type="button" data-view="iso">Isométrica</button>
+          </div>
+        </aside>
+        <aside class="viewer-panel info-panel" id="info-panel" hidden aria-label="Información del proyecto">
+          <p class="panel-title">Información del proyecto</p>
+          <dl>
+            <dt>Medidas generales</dt>
+            <dd>31,15 m × 11,07 m × 5,44 m</dd>
+            <dt>Origen de la medida</dt>
+            <dd>Contorno geométrico calculado desde el modelo GLB. Confirma las cotas de obra con los planos.</dd>
+            <dt>Materiales</dt>
+            <dd>El modelo contiene 45 materiales visuales. La especificación técnica y cantidades deben añadirse manualmente.</dd>
+            <dt>Observaciones</dt>
+            <dd>Agrega aquí datos aprobados de diseño, instalación o mantenimiento cuando estén disponibles.</dd>
+          </dl>
+        </aside>
         <nav class="touch-controls" aria-label="Controles de navegación 3D">
           <div class="control-group" aria-label="Girar e inclinar">
             <button type="button" class="viewer-control" data-action="left" aria-label="Girar a la izquierda" title="Girar a la izquierda">↶</button>
