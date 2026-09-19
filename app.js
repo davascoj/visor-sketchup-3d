@@ -34,3 +34,4 @@ document.querySelectorAll('[data-action]').forEach((button) => {
 });
 
 viewer.addEventListener('error', () => { error.hidden = false; });
+
