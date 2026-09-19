@@ -46,8 +46,22 @@
         <div class="controls-hint" aria-hidden="true">
           <span>Arrastra para girar</span><span>Rueda o pellizca para acercar</span>
         </div>
+        <nav class="touch-controls" aria-label="Controles de navegación 3D">
+          <div class="control-group" aria-label="Girar e inclinar">
+            <button type="button" class="viewer-control" data-action="left" aria-label="Girar a la izquierda" title="Girar a la izquierda">↶</button>
+            <button type="button" class="viewer-control" data-action="up" aria-label="Inclinar hacia arriba" title="Inclinar hacia arriba">↑</button>
+            <button type="button" class="viewer-control" data-action="down" aria-label="Inclinar hacia abajo" title="Inclinar hacia abajo">↓</button>
+            <button type="button" class="viewer-control" data-action="right" aria-label="Girar a la derecha" title="Girar a la derecha">↷</button>
+          </div>
+          <div class="control-group" aria-label="Acercamiento">
+            <button type="button" class="viewer-control" data-action="zoom-out" aria-label="Alejar" title="Alejar">−</button>
+            <button type="button" class="viewer-control reset" data-action="reset" aria-label="Restablecer vista" title="Restablecer vista">⌂</button>
+            <button type="button" class="viewer-control" data-action="zoom-in" aria-label="Acercar" title="Acercar">+</button>
+          </div>
+        </nav>
       </section>
     </main>
     <script src="app.js"></script>
   </body>
 </html>
+
