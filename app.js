@@ -31,14 +31,11 @@ function togglePanel(buttonId, panelId) {
 }
 
 togglePanel('#info-toggle', '#info-panel');
-togglePanel('#views-toggle', '#views-panel');
 
 document.querySelectorAll('[data-view]').forEach((button) => {
   button.addEventListener('click', () => {
     viewer.cameraOrbit = viewPresets[button.dataset.view];
     viewer.jumpCameraToGoal();
-    document.querySelector('#views-panel').hidden = true;
-    document.querySelector('#views-toggle').setAttribute('aria-expanded', 'false');
   });
 });
 

@@ -22,7 +22,6 @@
         </div>
         <div class="header-actions">
           <button id="info-toggle" class="button icon-button" type="button" aria-expanded="false" aria-controls="info-panel" title="Información del proyecto">ⓘ<span>Información</span></button>
-          <button id="views-toggle" class="button icon-button" type="button" aria-expanded="false" aria-controls="views-panel" title="Vistas predefinidas">◫<span>Vistas</span></button>
           <button id="fullscreen-toggle" class="button icon-button" type="button" title="Pantalla completa">⛶<span>Pantalla completa</span></button>
           <button id="reset-view" class="button" type="button">Restablecer vista</button>
         </div>
@@ -51,7 +50,7 @@
             <span id="loading-label">Cargando modelo 3D…</span>
             <progress id="loading-progress" max="100" value="0" aria-label="Progreso de carga"></progress>
           </div>
-          <button slot="ar-button" class="ar-button" type="button">Ver en mi espacio</button>
+          <button slot="ar-button" class="ar-button" type="button" aria-label="Ver en realidad aumentada">AR&nbsp;&nbsp;VER EN REALIDAD AUMENTADA</button>
         </model-viewer>
         <div id="error" class="error" hidden>
           No fue posible cargar el modelo. Verifica que exista <code>models/modelo.glb</code>.
@@ -59,15 +58,12 @@
         <div class="controls-hint" aria-hidden="true">
           <span>Arrastra para girar</span><span>Rueda o pellizca para acercar</span>
         </div>
-        <aside class="viewer-panel" id="views-panel" hidden aria-label="Vistas predefinidas">
-          <p class="panel-title">Vistas</p>
-          <div class="view-grid">
-            <button type="button" data-view="front">Frontal</button>
-            <button type="button" data-view="side">Lateral</button>
-            <button type="button" data-view="top">Superior</button>
-            <button type="button" data-view="iso">Isométrica</button>
-          </div>
-        </aside>
+        <nav class="view-dock" aria-label="Vistas predefinidas">
+          <button type="button" data-view="front" title="Vista frontal">Frente</button>
+          <button type="button" data-view="side" title="Vista lateral">Lateral</button>
+          <button type="button" data-view="top" title="Vista superior">Superior</button>
+          <button type="button" data-view="iso" title="Vista isométrica">3D</button>
+        </nav>
         <aside class="viewer-panel info-panel" id="info-panel" hidden aria-label="Información del proyecto">
           <p class="panel-title">Información del proyecto</p>
           <dl>
@@ -83,10 +79,10 @@
         </aside>
         <nav class="touch-controls" aria-label="Controles de navegación 3D">
           <div class="control-group" aria-label="Girar e inclinar">
-            <button type="button" class="viewer-control" data-action="left" aria-label="Girar a la izquierda" title="Girar a la izquierda">↶</button>
+            <button type="button" class="viewer-control" data-action="left" aria-label="Girar a la izquierda" title="Girar a la izquierda">←</button>
             <button type="button" class="viewer-control" data-action="up" aria-label="Inclinar hacia arriba" title="Inclinar hacia arriba">↑</button>
             <button type="button" class="viewer-control" data-action="down" aria-label="Inclinar hacia abajo" title="Inclinar hacia abajo">↓</button>
-            <button type="button" class="viewer-control" data-action="right" aria-label="Girar a la derecha" title="Girar a la derecha">↷</button>
+            <button type="button" class="viewer-control" data-action="right" aria-label="Girar a la derecha" title="Girar a la derecha">→</button>
           </div>
           <div class="control-group" aria-label="Acercamiento">
             <button type="button" class="viewer-control" data-action="zoom-out" aria-label="Alejar" title="Alejar">−</button>
