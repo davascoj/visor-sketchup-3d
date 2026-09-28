@@ -21,6 +21,14 @@ const projects = {
     materials: 'Consulta las especificaciones técnicas aprobadas para confirmar materiales y cantidades.',
     notes: 'Agrega aquí datos aprobados de diseño, instalación o mantenimiento cuando estén disponibles.',
   },
+  'modelo-3d-km-5-000-guaya': {
+    name: 'Modelo 3D KM 5+000 Guaya',
+    src: 'models/modelo-3d-km-5-000-guaya.glb?v=20260928-1',
+    measures: 'Información de medidas pendiente de confirmar en los planos del proyecto.',
+    origin: 'Modelo 3D correspondiente al proyecto KM 5+000 Guaya.',
+    materials: 'Consulta las especificaciones técnicas aprobadas para confirmar materiales y cantidades.',
+    notes: 'Agrega aquí datos aprobados de diseño, instalación o mantenimiento cuando estén disponibles.',
+  },
 };
 const requestedProject = new URLSearchParams(window.location.search).get('modelo');
 const projectId = Object.hasOwn(projects, requestedProject) ? requestedProject : 'plataformas-nuevo-mexico';

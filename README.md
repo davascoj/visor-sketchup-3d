@@ -6,6 +6,7 @@ Este repositorio publica modelos 3D interactivos mediante GitHub Pages.
 
 - Plataforma actual: `?modelo=plataformas-nuevo-mexico`
 - Herramienta OPG 05+000 KZB: `?modelo=herramienta-opg-05-000-kzb`
+- Modelo 3D KM 5+000 Guaya: `?modelo=modelo-3d-km-5-000-guaya`
 
 Cada enlace carga únicamente el modelo indicado. Puedes usarlo directamente en un código QR.
 
