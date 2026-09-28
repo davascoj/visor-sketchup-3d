@@ -26,8 +26,10 @@ const requestedProject = new URLSearchParams(window.location.search).get('modelo
 const projectId = Object.hasOwn(projects, requestedProject) ? requestedProject : 'plataformas-nuevo-mexico';
 const project = projects[projectId];
 
-viewer.src = project.src;
-viewer.alt = `Modelo 3D de ${project.name}`;
+// Se actualiza el atributo, no solo la propiedad, porque model-viewer se carga
+// como módulo y debe recibir el cambio incluso si aún no terminó de inicializarse.
+viewer.setAttribute('src', project.src);
+viewer.setAttribute('alt', `Modelo 3D de ${project.name}`);
 if (project.iosSrc) viewer.setAttribute('ios-src', project.iosSrc);
 else viewer.removeAttribute('ios-src');
 document.title = `${project.name} | Visor 3D`;
@@ -125,4 +127,5 @@ viewer.addEventListener('progress', (event) => {
   loadingProgress.value = percentage;
   loadingLabel.textContent = `Cargando modelo 3D… ${percentage}%`;
 });
+
 
