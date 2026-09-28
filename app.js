@@ -136,3 +136,4 @@ viewer.addEventListener('progress', (event) => {
   loadingLabel.textContent = `Cargando modelo 3D… ${percentage}%`;
 });
 
+
