@@ -1,6 +1,13 @@
-# Visor 3D — Plataformas de Acceso Nuevo México
+# Visor 3D de proyectos
 
-Este repositorio publica un modelo 3D interactivo mediante GitHub Pages.
+Este repositorio publica modelos 3D interactivos mediante GitHub Pages.
+
+## Enlaces por proyecto
+
+- Plataforma actual: `?modelo=plataformas-nuevo-mexico`
+- Herramienta OPG 05+000 KZB: `?modelo=herramienta-opg-05-000-kzb`
+
+Cada enlace carga únicamente el modelo indicado. Puedes usarlo directamente en un código QR.
 
 ## Actualizar el modelo desde GitHub Desktop
 

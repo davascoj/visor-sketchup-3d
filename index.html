@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#102a43" />
-    <meta name="description" content="Visor interactivo del modelo 3D Plataformas de Acceso Nuevo México." />
+    <meta name="description" content="Visor interactivo de modelos 3D de proyectos." />
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%230ea5a4' d='M8 48 32 8l24 40H8Z'/%3E%3Cpath fill='%23f8fafc' d='m32 20 11 19H21l11-19Z'/%3E%3C/svg%3E" />
-    <title>Plataformas de Acceso Nuevo México | Visor 3D</title>
+    <title>Visor 3D de proyectos</title>
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -17,10 +17,11 @@
           <span class="mark" aria-hidden="true">3D</span>
           <div>
             <p class="eyebrow">VISUALIZACIÓN INTERACTIVA</p>
-            <h1>Plataformas de Acceso Nuevo México</h1>
+            <h1 id="project-title">Plataformas de Acceso Nuevo México</h1>
           </div>
         </div>
         <div class="header-actions">
+          <button id="projects-toggle" class="button icon-button" type="button" aria-expanded="false" aria-controls="projects-panel" title="Elegir proyecto">▦<span>Proyectos</span></button>
           <button id="info-toggle" class="button icon-button" type="button" aria-expanded="false" aria-controls="info-panel" title="Información del proyecto">ⓘ<span>Información</span></button>
           <button id="fullscreen-toggle" class="button icon-button" type="button" title="Pantalla completa">⛶<span>Pantalla completa</span></button>
           <button id="reset-view" class="button" type="button">Restablecer vista</button>
@@ -30,7 +31,7 @@
       <section class="viewer-shell" aria-label="Modelo 3D interactivo">
         <model-viewer
           id="viewer"
-          src="models/modelo.glb?v=20260918-0950"
+          src="models/modelo.glb?v=20260928-1"
           alt="Modelo 3D de plataformas de acceso Nuevo México"
           camera-controls
           touch-action="none"
@@ -64,17 +65,21 @@
           <button type="button" data-view="top" title="Vista superior">Superior</button>
           <button type="button" data-view="iso" title="Vista isométrica">3D</button>
         </nav>
+        <aside class="viewer-panel projects-panel" id="projects-panel" hidden aria-label="Elegir proyecto">
+          <p class="panel-title">Elegir proyecto</p>
+          <div class="project-list" id="project-list"></div>
+        </aside>
         <aside class="viewer-panel info-panel" id="info-panel" hidden aria-label="Información del proyecto">
           <p class="panel-title">Información del proyecto</p>
           <dl>
             <dt>Medidas generales</dt>
-            <dd>31,15 m × 11,07 m × 5,44 m</dd>
+            <dd id="project-measures">31,15 m × 11,07 m × 5,44 m</dd>
             <dt>Origen de la medida</dt>
-            <dd>Contorno geométrico calculado desde el modelo GLB. Confirma las cotas de obra con los planos.</dd>
+            <dd id="project-origin">Contorno geométrico calculado desde el modelo GLB. Confirma las cotas de obra con los planos.</dd>
             <dt>Materiales</dt>
-            <dd>El modelo contiene 45 materiales visuales. La especificación técnica y cantidades deben añadirse manualmente.</dd>
+            <dd id="project-materials">El modelo contiene 45 materiales visuales. La especificación técnica y cantidades deben añadirse manualmente.</dd>
             <dt>Observaciones</dt>
-            <dd>Agrega aquí datos aprobados de diseño, instalación o mantenimiento cuando estén disponibles.</dd>
+            <dd id="project-notes">Agrega aquí datos aprobados de diseño, instalación o mantenimiento cuando estén disponibles.</dd>
           </dl>
         </aside>
         <nav class="touch-controls" aria-label="Controles de navegación 3D">

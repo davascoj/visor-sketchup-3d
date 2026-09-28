@@ -28,6 +28,9 @@ model-viewer { display: block; width: 100%; height: calc(100vh - 8rem); min-heig
 .viewer-control.reset { color: #78dcca; font-size: 1.15rem; }
 .viewer-panel { position: absolute; z-index: 4; top: 1rem; right: 1rem; width: min(21rem, calc(100% - 2rem)); padding: 1rem; border: 1px solid rgba(188, 239, 235, .28); border-radius: .75rem; background: rgba(4, 22, 34, .92); box-shadow: 0 12px 35px rgba(0, 0, 0, .3); backdrop-filter: blur(10px); }
 .panel-title { margin: 0 0 .75rem; color: #78dcca; font-size: .78rem; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+.project-list { display: grid; gap: .5rem; }
+.project-list button { min-height: 2.8rem; border: 1px solid rgba(188, 239, 235, .3); border-radius: .45rem; background: #103b4e; color: #ecfeff; font: inherit; font-size: .9rem; font-weight: 650; text-align: left; cursor: pointer; }
+.project-list button:hover, .project-list button:focus-visible { background: #176075; border-color: #78dcca; outline: none; }
 .view-dock { position: absolute; z-index: 3; left: 1rem; top: 50%; display: grid; gap: .4rem; transform: translateY(-50%); padding: .45rem; border: 1px solid rgba(188, 239, 235, .28); border-radius: .75rem; background: rgba(4, 22, 34, .82); box-shadow: 0 8px 28px rgba(0, 0, 0, .28); backdrop-filter: blur(10px); }
 .view-dock button { min-width: 5.25rem; min-height: 2.65rem; border: 1px solid rgba(188, 239, 235, .3); border-radius: .45rem; background: #103b4e; color: #ecfeff; font: inherit; font-size: .82rem; font-weight: 650; cursor: pointer; }
 .view-dock button:hover, .view-dock button:focus-visible { background: #176075; border-color: #78dcca; outline: none; }
