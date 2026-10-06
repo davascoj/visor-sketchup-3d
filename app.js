@@ -16,6 +16,7 @@ const projects = {
   'herramienta-opg-05-000-kzb': {
     name: 'Herramienta OPG 05+000 KZB',
     src: 'models/herramienta-opg-05-000-kzb.glb?v=20260928-1',
+    matteLandscape: true,
     measures: 'Información de medidas pendiente de confirmar en los planos del proyecto.',
     origin: 'Modelo 3D correspondiente al proyecto Herramienta OPG 05+000 KZB.',
     materials: 'Consulta las especificaciones técnicas aprobadas para confirmar materiales y cantidades.',
@@ -24,6 +25,7 @@ const projects = {
   'modelo-3d-km-5-000-guaya': {
     name: 'Modelo 3D KM 5+000 Guaya',
     src: 'models/modelo-3d-km-5-000-guaya.glb?v=20260928-1',
+    matteLandscape: true,
     measures: 'Información de medidas pendiente de confirmar en los planos del proyecto.',
     origin: 'Modelo 3D correspondiente al proyecto KM 5+000 Guaya.',
     materials: 'Consulta las especificaciones técnicas aprobadas para confirmar materiales y cantidades.',
@@ -126,6 +128,27 @@ document.querySelectorAll('[data-action]').forEach((button) => {
 
     viewer.cameraOrbit = `${theta}rad ${phi}rad ${radius}m`;
     viewer.jumpCameraToGoal();
+  });
+});
+
+// SimLab exportó vegetación y terreno como parcialmente metálicos, y los
+// árboles además emiten luz. Corrige solo estos materiales de los modelos OPG.
+const landscapeMaterialNames = new Set([
+  'Material-3780',
+  'travnik_256',
+  'Forest_Floor_01_1K',
+  'Concrete_02_1K',
+  'Asphalt_02_1K',
+]);
+viewer.addEventListener('load', () => {
+  if (!project.matteLandscape) return;
+  viewer.model.materials.forEach((material) => {
+    if (!landscapeMaterialNames.has(material.name)) return;
+    material.pbrMetallicRoughness.setMetallicFactor(0);
+    material.pbrMetallicRoughness.setRoughnessFactor(1);
+    if (material.name === 'Material-3780') {
+      material.setEmissiveFactor([0, 0, 0]);
+    }
   });
 });
 
