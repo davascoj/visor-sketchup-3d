@@ -6,7 +6,7 @@ const viewerShell = document.querySelector('.viewer-shell');
 const projects = {
   'plataformas-nuevo-mexico': {
     name: 'Plataformas de Acceso Nuevo México',
-    src: 'models/modelo.glb?v=20261019-4',
+    src: 'models/modelo.glb?v=20261019-5',
     measures: '31,15 m × 11,07 m × 5,44 m',
     origin: 'Contorno geométrico calculado desde el modelo GLB. Confirma las cotas de obra con los planos.',
     materials: 'El modelo contiene 45 materiales visuales. La especificación técnica y cantidades deben añadirse manualmente.',
@@ -157,5 +157,6 @@ viewer.addEventListener('progress', (event) => {
   loadingProgress.value = percentage;
   loadingLabel.textContent = `Cargando modelo 3D… ${percentage}%`;
 });
+
 
 
